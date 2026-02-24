@@ -1,107 +1,151 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>MyStore</title>
+<title>MyStore - Online Shopping</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f5f5f5;
+body{
+    margin:0;
+    font-family:Arial;
+    background:#f5f5f5;
+}
+
+/* Top Strip */
+.top-strip{
+    background:#ff3f6c;
+    color:white;
+    text-align:center;
+    padding:8px;
+    font-size:14px;
 }
 
 /* Header */
-header {
-    background: #ff3f6c;
-    color: white;
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+header{
+    background:white;
+    padding:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
 }
 
-header a {
-    color: white;
-    text-decoration: none;
-    margin-left: 15px;
-    font-weight: bold;
+.logo{
+    font-size:22px;
+    font-weight:bold;
+    color:#ff3f6c;
+}
+
+nav a{
+    margin-left:15px;
+    text-decoration:none;
+    color:black;
+    font-weight:bold;
 }
 
 /* Carousel */
-.carousel {
-    position: relative;
-    width: 100%;
-    height: 300px;
-    overflow: hidden;
+.carousel{
+    position:relative;
+    width:100%;
+    height:300px;
+    overflow:hidden;
 }
 
-.slides {
-    display: flex;
-    width: 300%;
-    animation: slide 9s infinite;
+.slides{
+    display:flex;
+    width:300%;
+    animation:slide 12s infinite;
 }
 
-.slide {
-    width: 100%;
-    flex-shrink: 0;
+.slide{
+    width:100%;
+    flex-shrink:0;
 }
 
-.slide img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
+.slide img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
 }
 
-@keyframes slide {
-    0% { transform: translateX(0%); }
-    33% { transform: translateX(-100%); }
-    66% { transform: translateX(-200%); }
-    100% { transform: translateX(0%); }
+@keyframes slide{
+    0%{transform:translateX(0%);}
+    33%{transform:translateX(-100%);}
+    66%{transform:translateX(-200%);}
+    100%{transform:translateX(0%);}
+}
+
+/* Categories */
+.categories{
+    display:flex;
+    justify-content:space-around;
+    padding:20px;
+    background:white;
+    margin-top:10px;
 }
 
 /* Products */
-.products {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 20px;
+.products{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    padding:20px;
 }
 
-.product {
-    background: white;
-    width: 220px;
-    margin: 15px;
-    padding: 15px;
-    border-radius: 8px;
-    text-align: center;
+.product{
+    background:white;
+    width:220px;
+    margin:15px;
+    padding:15px;
+    border-radius:8px;
+    text-align:center;
 }
 
-.product img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+.product img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
 }
 
-.price {
-    color: #ff3f6c;
-    font-weight: bold;
+.price{
+    color:#ff3f6c;
+    font-weight:bold;
 }
 
-button {
-    background: #ff3f6c;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    cursor: pointer;
-    border-radius: 5px;
+button{
+    background:#ff3f6c;
+    color:white;
+    border:none;
+    padding:8px 12px;
+    cursor:pointer;
+    border-radius:5px;
 }
 
-button:hover {
-    opacity: 0.8;
+button:hover{
+    opacity:0.8;
+}
+
+/* Features */
+.features{
+    background:white;
+    padding:30px;
+    text-align:center;
+}
+
+/* Footer */
+.footer{
+    background:#222;
+    color:white;
+    padding:20px;
+    text-align:center;
+    margin-top:20px;
 }
 
 @media(max-width:600px){
+    .categories{
+        flex-direction:column;
+        align-items:center;
+    }
     .products{
         flex-direction:column;
         align-items:center;
@@ -112,28 +156,40 @@ button:hover {
 
 <body>
 
+<div class="top-strip">
+🔥 Free Delivery | Easy Returns | Secure Payments
+</div>
+
 <header>
-<div><strong>MyStore</strong></div>
-<div>
+<div class="logo">MyStore</div>
+<nav>
 <a href="index.html">Home</a>
 <a href="login.html">Login</a>
 <a href="cart.html">Cart</a>
-</div>
+</nav>
 </header>
 
 <!-- Carousel -->
 <div class="carousel">
-    <div class="slides">
-        <div class="slide">
-            <img src="banner1.jpg">
-        </div>
-        <div class="slide">
-            <img src="banner2.jpg">
-        </div>
-        <div class="slide">
-            <img src="banner3.jpg">
-        </div>
-    </div>
+<div class="slides">
+<div class="slide">
+<img src="https://images.unsplash.com/photo-1521335629791-ce4aec67dd47">
+</div>
+<div class="slide">
+<img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d">
+</div>
+<div class="slide">
+<img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b">
+</div>
+</div>
+</div>
+
+<!-- Categories -->
+<div class="categories">
+<div>Women</div>
+<div>Men</div>
+<div>Kids</div>
+<div>Accessories</div>
 </div>
 
 <h2 style="text-align:center;">Trending Products</h2>
@@ -144,58 +200,59 @@ button:hover {
 <img src="tshirt.jpg">
 <h3>Casual T-Shirt</h3>
 <p class="price">₹299</p>
-<button onclick="addToCart('Casual T-Shirt', 299, 'tshirt.jpg')">Add to Cart</button>
+<button onclick="addToCart('Casual T-Shirt',299,'tshirt.jpg')">Add to Cart</button>
 </div>
 
 <div class="product">
 <img src="kurti.jpg">
 <h3>Stylish Kurti</h3>
 <p class="price">₹499</p>
-<button onclick="addToCart('Stylish Kurti', 499, 'kurti.jpg')">Add to Cart</button>
+<button onclick="addToCart('Stylish Kurti',499,'kurti.jpg')">Add to Cart</button>
 </div>
 
 <div class="product">
 <img src="shoes.jpg">
 <h3>Sports Shoes</h3>
 <p class="price">₹999</p>
-<button onclick="addToCart('Sports Shoes', 999, 'shoes.jpg')">Add to Cart</button>
+<button onclick="addToCart('Sports Shoes',999,'shoes.jpg')">Add to Cart</button>
 </div>
 
 <div class="product">
 <img src="watch.jpg">
 <h3>Classic Watch</h3>
 <p class="price">₹799</p>
-<button onclick="addToCart('Classic Watch', 799, 'watch.jpg')">Add to Cart</button>
+<button onclick="addToCart('Classic Watch',799,'watch.jpg')">Add to Cart</button>
 </div>
 
 <div class="product">
 <img src="bag.jpg">
 <h3>Handbag</h3>
 <p class="price">₹599</p>
-<button onclick="addToCart('Handbag', 599, 'bag.jpg')">Add to Cart</button>
+<button onclick="addToCart('Handbag',599,'bag.jpg')">Add to Cart</button>
 </div>
 
+</div>
+
+<div class="features">
+<h2>Why Shop With Us?</h2>
+<p>✔ 10,000+ Happy Customers</p>
+<p>✔ Fast Delivery</p>
+<p>✔ Easy 7 Day Returns</p>
+<p>✔ Secure Checkout</p>
+</div>
+
+<div class="footer">
+© 2026 MyStore | About | Contact | Privacy Policy
 </div>
 
 <script>
-function addToCart(name, price, image) {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-    let existingProduct = cart.find(item => item.name === name);
-
-    if (existingProduct) {
-        existingProduct.quantity += 1;
-    } else {
-        cart.push({
-            name: name,
-            price: price,
-            image: image,
-            quantity: 1
-        });
-    }
-
-    localStorage.setItem("cart", JSON.stringify(cart));
-    alert(name + " added to cart!");
+function addToCart(name,price,image){
+let cart=JSON.parse(localStorage.getItem("cart"))||[];
+let existing=cart.find(item=>item.name===name);
+if(existing){existing.quantity+=1;}
+else{cart.push({name,price,image,quantity:1});}
+localStorage.setItem("cart",JSON.stringify(cart));
+alert(name+" added to cart!");
 }
 </script>
 
