@@ -7,11 +7,11 @@
 <style>
 body{
     margin:0;
-    font-family:Arial;
+    font-family:Arial, sans-serif;
     background:#f5f5f5;
 }
 
-/* Floating Nav */
+/* Floating Buttons */
 .floating-nav{
     position:fixed;
     top:15px;
@@ -40,7 +40,7 @@ body{
 /* Header */
 header{
     background:white;
-    padding:15px;
+    padding:15px 30px;
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -52,28 +52,29 @@ header{
     color:#ff3f6c;
 }
 nav a{
-    margin-left:15px;
+    margin-left:20px;
     text-decoration:none;
     color:black;
     font-weight:bold;
 }
 
-/* Hero Section */
+/* Hero */
 .hero{
     background:linear-gradient(to right,#ff3f6c,#ff9a9e);
     color:white;
     text-align:center;
-    padding:60px 20px;
+    padding:70px 20px;
 }
 .hero h1{
-    font-size:40px;
+    font-size:42px;
     margin:0;
 }
 .hero p{
     font-size:18px;
+    margin-top:10px;
 }
 .hero button{
-    margin-top:15px;
+    margin-top:20px;
 }
 
 /* Highlights */
@@ -84,7 +85,7 @@ nav a{
     background:white;
 }
 .highlights div{
-    text-align:center;
+    font-weight:bold;
 }
 
 /* Products */
@@ -96,15 +97,16 @@ nav a{
 }
 .product{
     background:white;
-    width:220px;
+    width:230px;
     margin:15px;
     padding:15px;
-    border-radius:8px;
+    border-radius:10px;
     text-align:center;
     transition:0.3s;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
 }
 .product:hover{
-    transform:scale(1.05);
+    transform:translateY(-5px);
 }
 .product img{
     width:100%;
@@ -128,7 +130,7 @@ button:hover{
 }
 
 /* Extra Section */
-.extra-section{
+.extra{
     background:white;
     padding:40px;
     text-align:center;
@@ -147,6 +149,7 @@ button:hover{
     .highlights{
         flex-direction:column;
         gap:15px;
+        text-align:center;
     }
     .products{
         flex-direction:column;
@@ -164,7 +167,7 @@ button:hover{
 </div>
 
 <div class="top-strip">
-🔥 Big Sale Live | Free Delivery | Secure Checkout
+🔥 Mega Fashion Sale | Free Delivery | Secure Payments
 </div>
 
 <header>
@@ -177,9 +180,11 @@ button:hover{
 </header>
 
 <div class="hero">
-<h1>Upgrade Your Style</h1>
+<h1>Upgrade Your Style Today</h1>
 <p>Trending Fashion at Unbeatable Prices</p>
-<button onclick="window.location.href='#products'">Shop Now</button>
+<button onclick="document.getElementById('products').scrollIntoView()">
+Shop Now
+</button>
 </div>
 
 <div class="highlights">
@@ -230,14 +235,14 @@ button:hover{
 
 </div>
 
-<div class="extra-section">
+<div class="extra">
 <h2>Why Choose MyStore?</h2>
-<p>We deliver quality products at affordable prices with customer satisfaction as our top priority.</p>
-<p>Join thousands of happy shoppers today!</p>
+<p>We deliver high-quality products at affordable prices.</p>
+<p>Thousands of happy customers trust us for their fashion needs.</p>
 </div>
 
 <div class="footer">
-© 2026 MyStore | About | Contact | Terms | Privacy
+© 2026 MyStore | About | Contact | Privacy Policy
 </div>
 
 <script>
