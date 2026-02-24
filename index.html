@@ -62,17 +62,19 @@ nav a{
 .slider{
     width:100%;
     overflow:hidden;
+    background:#fff;
 }
+
 .slides{
     display:flex;
     width:300%;
     animation:slide 12s infinite;
 }
+
 .slides img{
     width:100%;
-    height:auto;
-    max-height:450px;
-    object-fit:cover;
+    height:450px;
+    object-fit:contain;
 }
 
 @keyframes slide{
@@ -242,4 +244,5 @@ alert(name+" added to cart!");
 
 </body>
 </html>
+
 
