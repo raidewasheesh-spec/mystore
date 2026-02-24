@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>MyStore - Online Shopping</title>
+<title>MyStore - Fashion Hub</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -10,10 +10,24 @@ body{
     font-family:Arial;
     background:#f5f5f5;
 }
-<div class="floating-nav">
-    <button onclick="history.back()">⬅ Back</button>
-    <button onclick="window.location.href='index.html'">🏠 Home</button>
-</div>
+
+/* Floating Nav */
+.floating-nav{
+    position:fixed;
+    top:15px;
+    left:15px;
+    z-index:999;
+}
+.floating-nav button{
+    background:#222;
+    color:white;
+    border:none;
+    padding:6px 10px;
+    margin-right:5px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
 /* Top Strip */
 .top-strip{
     background:#ff3f6c;
@@ -32,13 +46,11 @@ header{
     align-items:center;
     box-shadow:0 2px 5px rgba(0,0,0,0.1);
 }
-
 .logo{
-    font-size:22px;
+    font-size:24px;
     font-weight:bold;
     color:#ff3f6c;
 }
-
 nav a{
     margin-left:15px;
     text-decoration:none;
@@ -46,45 +58,33 @@ nav a{
     font-weight:bold;
 }
 
-/* Carousel */
-.carousel{
-    position:relative;
-    width:100%;
-    height:300px;
-    overflow:hidden;
+/* Hero Section */
+.hero{
+    background:linear-gradient(to right,#ff3f6c,#ff9a9e);
+    color:white;
+    text-align:center;
+    padding:60px 20px;
+}
+.hero h1{
+    font-size:40px;
+    margin:0;
+}
+.hero p{
+    font-size:18px;
+}
+.hero button{
+    margin-top:15px;
 }
 
-.slides{
-    display:flex;
-    width:300%;
-    animation:slide 12s infinite;
-}
-
-.slide{
-    width:100%;
-    flex-shrink:0;
-}
-
-.slide img{
-    width:100%;
-    height:300px;
-    object-fit:cover;
-}
-
-@keyframes slide{
-    0%{transform:translateX(0%);}
-    33%{transform:translateX(-100%);}
-    66%{transform:translateX(-200%);}
-    100%{transform:translateX(0%);}
-}
-
-/* Categories */
-.categories{
+/* Highlights */
+.highlights{
     display:flex;
     justify-content:space-around;
     padding:20px;
     background:white;
-    margin-top:10px;
+}
+.highlights div{
+    text-align:center;
 }
 
 /* Products */
@@ -94,7 +94,6 @@ nav a{
     justify-content:center;
     padding:20px;
 }
-
 .product{
     background:white;
     width:220px;
@@ -102,19 +101,20 @@ nav a{
     padding:15px;
     border-radius:8px;
     text-align:center;
+    transition:0.3s;
 }
-
+.product:hover{
+    transform:scale(1.05);
+}
 .product img{
     width:100%;
     height:200px;
     object-fit:cover;
 }
-
 .price{
     color:#ff3f6c;
     font-weight:bold;
 }
-
 button{
     background:#ff3f6c;
     color:white;
@@ -123,15 +123,14 @@ button{
     cursor:pointer;
     border-radius:5px;
 }
-
 button:hover{
     opacity:0.8;
 }
 
-/* Features */
-.features{
+/* Extra Section */
+.extra-section{
     background:white;
-    padding:30px;
+    padding:40px;
     text-align:center;
 }
 
@@ -145,9 +144,9 @@ button:hover{
 }
 
 @media(max-width:600px){
-    .categories{
+    .highlights{
         flex-direction:column;
-        align-items:center;
+        gap:15px;
     }
     .products{
         flex-direction:column;
@@ -159,8 +158,13 @@ button:hover{
 
 <body>
 
+<div class="floating-nav">
+<button onclick="history.back()">⬅ Back</button>
+<button onclick="window.location.href='index.html'">🏠 Home</button>
+</div>
+
 <div class="top-strip">
-🔥 Free Delivery | Easy Returns | Secure Payments
+🔥 Big Sale Live | Free Delivery | Secure Checkout
 </div>
 
 <header>
@@ -172,30 +176,20 @@ button:hover{
 </nav>
 </header>
 
-<!-- Carousel -->
-<div class="carousel">
-<div class="slides">
-<div class="slide">
-<img src="https://images.unsplash.com/photo-1521335629791-ce4aec67dd47">
-</div>
-<div class="slide">
-<img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d">
-</div>
-<div class="slide">
-<img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b">
-</div>
-</div>
+<div class="hero">
+<h1>Upgrade Your Style</h1>
+<p>Trending Fashion at Unbeatable Prices</p>
+<button onclick="window.location.href='#products'">Shop Now</button>
 </div>
 
-<!-- Categories -->
-<div class="categories">
-<div>Women</div>
-<div>Men</div>
-<div>Kids</div>
-<div>Accessories</div>
+<div class="highlights">
+<div>🚚 Fast Delivery</div>
+<div>💳 Secure Payment</div>
+<div>🔄 Easy Returns</div>
+<div>⭐ Top Rated Products</div>
 </div>
 
-<h2 style="text-align:center;">Trending Products</h2>
+<h2 style="text-align:center;" id="products">Trending Products</h2>
 
 <div class="products">
 
@@ -229,23 +223,21 @@ button:hover{
 
 <div class="product">
 <img src="bag.jpg">
-<h3>Handbag</h3>
+<h3>Premium Handbag</h3>
 <p class="price">₹599</p>
-<button onclick="addToCart('Handbag',599,'bag.jpg')">Add to Cart</button>
+<button onclick="addToCart('Premium Handbag',599,'bag.jpg')">Add to Cart</button>
 </div>
 
 </div>
 
-<div class="features">
-<h2>Why Shop With Us?</h2>
-<p>✔ 10,000+ Happy Customers</p>
-<p>✔ Fast Delivery</p>
-<p>✔ Easy 7 Day Returns</p>
-<p>✔ Secure Checkout</p>
+<div class="extra-section">
+<h2>Why Choose MyStore?</h2>
+<p>We deliver quality products at affordable prices with customer satisfaction as our top priority.</p>
+<p>Join thousands of happy shoppers today!</p>
 </div>
 
 <div class="footer">
-© 2026 MyStore | About | Contact | Privacy Policy
+© 2026 MyStore | About | Contact | Terms | Privacy
 </div>
 
 <script>
@@ -261,4 +253,3 @@ alert(name+" added to cart!");
 
 </body>
 </html>
-
