@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cart</title>
+<style>
+body { font-family:Arial; padding:40px; }
+.box { background:#f5f5f5; padding:20px; border-radius:10px; width:300px; }
+button { padding:10px; width:100%; margin-top:10px; background:#d63384; color:white; border:none; }
+</style>
+</head>
+
+<body>
+
+<h2>Your Cart</h2>
+
+<div class="box">
+<p><strong>Product:</strong> <span id="product"></span></p>
+<p><strong>Price:</strong> ₹<span id="price"></span></p>
+
+<h3>Select Payment Mode</h3>
+<input type="radio" name="pay"> Card <br>
+<input type="radio" name="pay"> UPI <br>
+<input type="radio" name="pay"> Net Banking <br>
+
+<button onclick="alert('Order Placed Successfully!')">Pay Now</button>
+</div>
+
+<script>
+document.getElementById("product").innerText = localStorage.getItem("product");
+document.getElementById("price").innerText = localStorage.getItem("price");
+</script>
+
+</body>
+</html>

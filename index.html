@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Store</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body { font-family: Arial; margin:0; background:#f5f5f5; }
+.navbar { display:flex; justify-content:space-between; padding:15px 40px; background:white; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
+.logo { font-size:22px; font-weight:bold; color:#d63384; }
+.nav-links a { margin-left:20px; text-decoration:none; color:black; }
+.banner { height:250px; background:linear-gradient(to right,#ff4da6,#d63384); display:flex; align-items:center; justify-content:center; color:white; font-size:28px; font-weight:bold; }
+.products { padding:40px; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px; }
+.card { background:white; padding:15px; border-radius:10px; box-shadow:0 3px 10px rgba(0,0,0,0.1); }
+.card img { width:100%; border-radius:10px; }
+.price { color:#d63384; font-weight:bold; }
+button { padding:8px; width:100%; background:#d63384; color:white; border:none; border-radius:5px; cursor:pointer; }
+</style>
+
+<script>
+function addToCart(product, price){
+    localStorage.setItem("product", product);
+    localStorage.setItem("price", price);
+    alert("Added to Cart");
+}
+</script>
+
+</head>
+<body>
+
+<div class="navbar">
+    <div class="logo">MyStore</div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="login.html">Login</a>
+        <a href="cart.html">Cart</a>
+    </div>
+</div>
+
+<div class="banner">Big Sale - 50% OFF</div>
+
+<div class="products">
+
+<div class="card">
+<img src="images/tshirt.jpg">
+<h3>Men T-Shirt</h3>
+<p class="price">₹499</p>
+<button onclick="addToCart('Men T-Shirt',499)">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="images/kurti.jpg">
+<h3>Women Kurti</h3>
+<p class="price">₹799</p>
+<button onclick="addToCart('Women Kurti',799)">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="images/shoes.jpg">
+<h3>Shoes</h3>
+<p class="price">₹1499</p>
+<button onclick="addToCart('Shoes',1499)">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="images/watch.jpg">
+<h3>Smart Watch</h3>
+<p class="price">₹1999</p>
+<button onclick="addToCart('Smart Watch',1999)">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="images/bag.jpg">
+<h3>Backpack</h3>
+<p class="price">₹899</p>
+<button onclick="addToCart('Backpack',899)">Add to Cart</button>
+</div>
+
+</div>
+
+</body>
+</html>
