@@ -13,6 +13,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+    /* Slider */
+.slider{
+    width:100%;
+    overflow:hidden;
+    margin-top:10px;
+}
+.slides{
+    display:flex;
+    width:300%;
+    animation:slide 12s infinite;
+}
+.slides img{
+    width:100%;
+    height:350px;
+    object-fit:cover;
+}
+
+@keyframes slide{
+    0%{margin-left:0;}
+    30%{margin-left:0;}
+    35%{margin-left:-100%;}
+    65%{margin-left:-100%;}
+    70%{margin-left:-200%;}
+    100%{margin-left:-200%;}
+}
 body{
     margin:0;
     font-family:Arial, sans-serif;
@@ -266,4 +291,5 @@ alert(name+" added to cart!");
 
 </body>
 </html>
+
 
