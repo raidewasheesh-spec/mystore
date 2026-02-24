@@ -1,91 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>MyStore - Online Shopping</title>
+<title>MyStore</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
-    <script>
-function addToCart(name, price) {
-
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-    let existingProduct = cart.find(item => item.name === name);
-
-    if (existingProduct) {
-        existingProduct.quantity += 1;
-    } else {
-        cart.push({
-            name: name,
-            price: price,
-            quantity: 1
-        });
-    }
-
-    localStorage.setItem("cart", JSON.stringify(cart));
-
-    alert(name + " added to cart!");
-}
-</script>
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: Arial;
     background: #f5f5f5;
 }
 
-.top-strip {
+header {
     background: #ff3f6c;
     color: white;
-    text-align: center;
-    padding: 8px;
-    font-size: 14px;
-}
-
-header {
-    background: white;
     padding: 15px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
 }
 
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #ff3f6c;
-}
-
-.search-box input {
-    padding: 8px;
-    width: 300px;
-}
-
-.nav a {
-    margin-left: 15px;
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-}
-
-.banner {
-    background: linear-gradient(to right, #ff3f6c, #ff9a9e);
+header a {
     color: white;
-    text-align: center;
-    padding: 60px 20px;
-}
-
-.banner h1 {
-    margin: 0;
-    font-size: 40px;
-}
-
-.categories {
-    display: flex;
-    justify-content: space-around;
-    padding: 20px;
-    background: white;
-}
-
-.category {
-    text-align: center;
+    text-decoration: none;
+    margin-left: 15px;
+    font-weight: bold;
 }
 
 .products {
@@ -100,7 +38,7 @@ header {
     width: 220px;
     margin: 15px;
     padding: 15px;
-    border-radius: 10px;
+    border-radius: 8px;
     text-align: center;
 }
 
@@ -124,56 +62,21 @@ button {
     border-radius: 5px;
 }
 
-.features {
-    background: white;
-    padding: 40px;
-    text-align: center;
-}
-
-.footer {
-    background: #222;
-    color: white;
-    padding: 30px;
-    text-align: center;
-    margin-top: 30px;
+button:hover {
+    opacity: 0.8;
 }
 </style>
 </head>
 
 <body>
 
-<div class="top-strip">
-🔥 Free Delivery on First Order | COD Available | Easy Returns
-</div>
-
 <header>
-<div class="logo">MyStore</div>
-
-<div class="search-box">
-<input type="text" placeholder="Search for products...">
-</div>
-
-<div class="nav">
+<div><strong>MyStore</strong></div>
+<div>
 <a href="index.html">Home</a>
-<a href="login.html">Login</a>
 <a href="cart.html">Cart</a>
 </div>
 </header>
-
-<div class="banner">
-<h1>Big Fashion Sale</h1>
-<p>Up to 70% OFF on Latest Styles</p>
-<button>Shop Now</button>
-</div>
-
-<div class="categories">
-<div class="category">Women</div>
-<div class="category">Men</div>
-<div class="category">Kids</div>
-<div class="category">Accessories</div>
-</div>
-
-<h2 style="text-align:center;">Deals of the Day</h2>
 
 <div class="products">
 
@@ -181,53 +84,72 @@ button {
 <img src="tshirt.jpg">
 <h3>Casual T-Shirt</h3>
 <p class="price">₹299</p>
-<button onclick="addToCart('Casual T-Shirt', 299)">Add to Cart</button></div>
+<button onclick="addToCart('Casual T-Shirt', 299, 'tshirt.jpg')">
+Add to Cart
+</button>
+</div>
 
 <div class="product">
 <img src="kurti.jpg">
 <h3>Stylish Kurti</h3>
 <p class="price">₹499</p>
-<button onclick="addToCart('kurti', 299)">Add to Cart</button>
+<button onclick="addToCart('Stylish Kurti', 499, 'kurti.jpg')">
+Add to Cart
+</button>
 </div>
 
 <div class="product">
 <img src="shoes.jpg">
 <h3>Sports Shoes</h3>
 <p class="price">₹999</p>
-<button onclick="addToCart('Sports Shoes', 299)">Add to Cart</button>
+<button onclick="addToCart('Sports Shoes', 999, 'shoes.jpg')">
+Add to Cart
+</button>
 </div>
 
 <div class="product">
 <img src="watch.jpg">
 <h3>Classic Watch</h3>
 <p class="price">₹799</p>
-<button onclick="addToCart('watch', 299)">Add to Cart</button>
+<button onclick="addToCart('Classic Watch', 799, 'watch.jpg')">
+Add to Cart
+</button>
 </div>
 
 <div class="product">
 <img src="bag.jpg">
 <h3>Handbag</h3>
 <p class="price">₹599</p>
-<button onclick="addToCart('bag', 299)">Add to Cart</button>
+<button onclick="addToCart('Handbag', 599, 'bag.jpg')">
+Add to Cart
+</button>
 </div>
 
 </div>
 
-<div class="features">
-<h2>Why Shop With Us?</h2>
-<p>✔ Trusted by 10,000+ customers</p>
-<p>✔ Secure Payments</p>
-<p>✔ Fast Delivery</p>
-<p>✔ Easy 7-Day Returns</p>
-</div>
+<script>
+function addToCart(name, price, image) {
 
-<div class="footer">
-<p>© 2026 MyStore. All Rights Reserved.</p>
-<p>About Us | Contact | Terms | Privacy Policy</p>
-<p>Download Our App</p>
-</div>
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    let existingProduct = cart.find(item => item.name === name);
+
+    if (existingProduct) {
+        existingProduct.quantity += 1;
+    } else {
+        cart.push({
+            name: name,
+            price: price,
+            image: image,
+            quantity: 1
+        });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    alert(name + " added to cart!");
+}
+</script>
 
 </body>
 </html>
-
-
