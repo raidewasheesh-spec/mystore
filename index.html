@@ -1,43 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- 🔥 Auto Sliding Offer Banner -->
-<div class="slider">
-  <div class="slides">
-    <img src="offer1.jpg">
-    <img src="offer2.jpg">
-    <img src="offer3.jpg">
-  </div>
-</div>
 <title>MyStore - Fashion Hub</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-    /* Slider */
-.slider{
-    width:100%;
-    overflow:hidden;
-    margin-top:10px;
-}
-.slides{
-    display:flex;
-    width:300%;
-    animation:slide 12s infinite;
-}
-.slides img{
-    width:100%;
-    height:350px;
-    object-fit:cover;
-}
-
-@keyframes slide{
-    0%{margin-left:0;}
-    30%{margin-left:0;}
-    35%{margin-left:-100%;}
-    65%{margin-left:-100%;}
-    70%{margin-left:-200%;}
-    100%{margin-left:-200%;}
-}
 body{
     margin:0;
     font-family:Arial, sans-serif;
@@ -91,34 +58,47 @@ nav a{
     font-weight:bold;
 }
 
+/* Slider */
+.slider{
+    width:100%;
+    overflow:hidden;
+}
+.slides{
+    display:flex;
+    width:300%;
+    animation:slide 12s infinite;
+}
+.slides img{
+    width:100%;
+    height:350px;
+    object-fit:cover;
+}
+
+@keyframes slide{
+    0%{margin-left:0;}
+    30%{margin-left:0;}
+    35%{margin-left:-100%;}
+    65%{margin-left:-100%;}
+    70%{margin-left:-200%;}
+    100%{margin-left:-200%;}
+}
+
 /* Hero */
 .hero{
     background:linear-gradient(to right,#ff3f6c,#ff9a9e);
     color:white;
     text-align:center;
-    padding:70px 20px;
+    padding:60px 20px;
 }
 .hero h1{
-    font-size:42px;
+    font-size:40px;
     margin:0;
 }
 .hero p{
     font-size:18px;
-    margin-top:10px;
 }
 .hero button{
     margin-top:20px;
-}
-
-/* Highlights */
-.highlights{
-    display:flex;
-    justify-content:space-around;
-    padding:20px;
-    background:white;
-}
-.highlights div{
-    font-weight:bold;
 }
 
 /* Products */
@@ -162,13 +142,6 @@ button:hover{
     opacity:0.8;
 }
 
-/* Extra Section */
-.extra{
-    background:white;
-    padding:40px;
-    text-align:center;
-}
-
 /* Footer */
 .footer{
     background:#222;
@@ -176,18 +149,6 @@ button:hover{
     padding:20px;
     text-align:center;
     margin-top:20px;
-}
-
-@media(max-width:600px){
-    .highlights{
-        flex-direction:column;
-        gap:15px;
-        text-align:center;
-    }
-    .products{
-        flex-direction:column;
-        align-items:center;
-    }
 }
 </style>
 </head>
@@ -212,19 +173,21 @@ button:hover{
 </nav>
 </header>
 
+<!-- 🔥 AUTO SLIDING OFFER BANNER -->
+<div class="slider">
+  <div class="slides">
+    <img src="offer1.jpg">
+    <img src="offer2.jpg">
+    <img src="offer3.jpg">
+  </div>
+</div>
+
 <div class="hero">
 <h1>Upgrade Your Style Today</h1>
 <p>Trending Fashion at Unbeatable Prices</p>
 <button onclick="document.getElementById('products').scrollIntoView()">
 Shop Now
 </button>
-</div>
-
-<div class="highlights">
-<div>🚚 Fast Delivery</div>
-<div>💳 Secure Payment</div>
-<div>🔄 Easy Returns</div>
-<div>⭐ Top Rated Products</div>
 </div>
 
 <h2 style="text-align:center;" id="products">Trending Products</h2>
@@ -259,19 +222,6 @@ Shop Now
 <button onclick="addToCart('Classic Watch',799,'watch.jpg')">Add to Cart</button>
 </div>
 
-<div class="product">
-<img src="bag.jpg">
-<h3>Premium Handbag</h3>
-<p class="price">₹599</p>
-<button onclick="addToCart('Premium Handbag',599,'bag.jpg')">Add to Cart</button>
-</div>
-
-</div>
-
-<div class="extra">
-<h2>Why Choose MyStore?</h2>
-<p>We deliver high-quality products at affordable prices.</p>
-<p>Thousands of happy customers trust us for their fashion needs.</p>
 </div>
 
 <div class="footer">
@@ -291,5 +241,3 @@ alert(name+" added to cart!");
 
 </body>
 </html>
-
-
