@@ -5,82 +5,133 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial;
-    background: linear-gradient(to right, #ff3f6c, #ff9a9e);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-<div class="floating-nav">
-    <button onclick="history.back()">⬅ Back</button>
-    <button onclick="window.location.href='index.html'">🏠 Home</button>
-</div>
-.login-box {
-    background: white;
-    padding: 40px;
-    width: 320px;
-    border-radius: 10px;
-    text-align: center;
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:linear-gradient(to right,#ff3f6c,#ff9a9e);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
 }
 
-.login-box h2 {
-    margin-bottom: 20px;
+/* Floating Nav */
+.floating-nav{
+    position:fixed;
+    top:15px;
+    left:15px;
+}
+.floating-nav button{
+    background:#222;
+    color:white;
+    border:none;
+    padding:6px 10px;
+    margin-right:5px;
+    border-radius:5px;
+    cursor:pointer;
 }
 
-input {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    border: 1px solid #ccc;
+/* Login Card */
+.login-container{
+    background:rgba(255,255,255,0.95);
+    padding:40px;
+    width:350px;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    text-align:center;
 }
 
-button {
-    width: 100%;
-    padding: 10px;
-    background: #ff3f6c;
-    color: white;
-    border: none;
-    cursor: pointer;
-    margin-top: 10px;
+.login-container h2{
+    margin-bottom:10px;
+    color:#ff3f6c;
 }
 
-button:hover {
-    opacity: 0.8;
+.login-container p{
+    font-size:14px;
+    color:#555;
+    margin-bottom:20px;
 }
 
-.extra {
-    margin-top: 15px;
-    font-size: 14px;
+input{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border-radius:8px;
+    border:1px solid #ccc;
+    font-size:14px;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    background:#ff3f6c;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+    margin-top:10px;
+}
+
+button:hover{
+    opacity:0.9;
+}
+
+/* Social Buttons */
+.social-btn{
+    background:white;
+    color:#333;
+    border:1px solid #ddd;
+    margin-top:10px;
+}
+
+/* Extra Content */
+.extra-content{
+    margin-top:20px;
+    font-size:13px;
+    color:#666;
+}
+
+.extra-content a{
+    color:#ff3f6c;
+    text-decoration:none;
+    font-weight:bold;
 }
 </style>
 </head>
 
 <body>
 
-<div class="login-box">
-<h2>Welcome Back</h2>
+<div class="floating-nav">
+<button onclick="history.back()">⬅ Back</button>
+<button onclick="window.location.href='index.html'">🏠 Home</button>
+</div>
 
-<input type="text" placeholder="Email or Mobile">
-<input type="password" placeholder="Password">
+<div class="login-container">
+<h2>Welcome Back 👋</h2>
+<p>Login to continue shopping the latest fashion trends.</p>
+
+<input type="email" placeholder="Enter Email">
+<input type="password" placeholder="Enter Password">
 
 <button onclick="login()">Login</button>
 
-<div class="extra">
-<p>New User? Sign Up</p>
-<p>Secure Login | Fast Checkout</p>
+<button class="social-btn">Login with Google</button>
+<button class="social-btn">Login with Facebook</button>
+
+<div class="extra-content">
+<p>New to MyStore? <a href="#">Create an account</a></p>
+<p>By logging in, you agree to our Terms & Privacy Policy.</p>
 </div>
+
 </div>
 
 <script>
 function login(){
-    alert("Login Successful (Demo Mode)");
-    window.location.href="index.html";
+alert("Login Successful (Demo)");
+window.location.href="index.html";
 }
 </script>
 
 </body>
 </html>
-
