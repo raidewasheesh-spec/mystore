@@ -1,33 +1,100 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Cart</title>
+<title>MyStore Cart</title>
 <style>
-body { font-family:Arial; padding:40px; }
-.box { background:#f5f5f5; padding:20px; border-radius:10px; width:300px; }
-button { padding:10px; width:100%; margin-top:10px; background:#d63384; color:white; border:none; }
+body { font-family: Arial; padding: 20px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 10px; border: 1px solid #ccc; text-align: center; }
+button { padding: 5px 10px; }
+.total { font-size: 20px; margin-top: 20px; }
 </style>
 </head>
-
 <body>
 
 <h2>Your Cart</h2>
 
-<div class="box">
-<p><strong>Product:</strong> <span id="product"></span></p>
-<p><strong>Price:</strong> ₹<span id="price"></span></p>
+<table>
+<thead>
+<tr>
+<th>Product</th>
+<th>Price</th>
+<th>Quantity</th>
+<th>Total</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody id="cartItems"></tbody>
+</table>
 
-<h3>Select Payment Mode</h3>
-<input type="radio" name="pay"> Card <br>
-<input type="radio" name="pay"> UPI <br>
-<input type="radio" name="pay"> Net Banking <br>
-
-<button onclick="alert('Order Placed Successfully!')">Pay Now</button>
+<div class="total">
+Grand Total: ₹ <span id="grandTotal">0</span>
 </div>
 
+<h3>Payment Method</h3>
+<select>
+<option>Credit/Debit Card</option>
+<option>UPI</option>
+<option>Net Banking</option>
+<option>Cash on Delivery</option>
+</select>
+
+<button onclick="checkout()">Proceed to Payment</button>
+
 <script>
-document.getElementById("product").innerText = localStorage.getItem("product");
-document.getElementById("price").innerText = localStorage.getItem("price");
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let cartTable = document.getElementById("cartItems");
+let grandTotal = 0;
+
+function loadCart() {
+    cartTable.innerHTML = "";
+    grandTotal = 0;
+
+    cart.forEach((item, index) => {
+        let total = item.price * item.quantity;
+        grandTotal += total;
+
+        cartTable.innerHTML += `
+        <tr>
+            <td>${item.name}</td>
+            <td>₹${item.price}</td>
+            <td>
+                <button onclick="changeQty(${index}, -1)">-</button>
+                ${item.quantity}
+                <button onclick="changeQty(${index}, 1)">+</button>
+            </td>
+            <td>₹${total}</td>
+            <td><button onclick="removeItem(${index})">Remove</button></td>
+        </tr>`;
+    });
+
+    document.getElementById("grandTotal").innerText = grandTotal;
+}
+
+function changeQty(index, change) {
+    cart[index].quantity += change;
+
+    if (cart[index].quantity <= 0) {
+        cart.splice(index, 1);
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    loadCart();
+}
+
+function removeItem(index) {
+    cart.splice(index, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    loadCart();
+}
+
+function checkout() {
+    alert("Payment Successful! Thank you for shopping.");
+    localStorage.removeItem("cart");
+    location.reload();
+}
+
+loadCart();
 </script>
 
 </body>
