@@ -1,85 +1,210 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>My Store</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<title>MyStore - Online Shopping</title>
 <style>
-body { font-family: Arial; margin:0; background:#f5f5f5; }
-.navbar { display:flex; justify-content:space-between; padding:15px 40px; background:white; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
-.logo { font-size:22px; font-weight:bold; color:#d63384; }
-.nav-links a { margin-left:20px; text-decoration:none; color:black; }
-.banner { height:250px; background:linear-gradient(to right,#ff4da6,#d63384); display:flex; align-items:center; justify-content:center; color:white; font-size:28px; font-weight:bold; }
-.products { padding:40px; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px; }
-.card { background:white; padding:15px; border-radius:10px; box-shadow:0 3px 10px rgba(0,0,0,0.1); }
-.card img { width:100%; border-radius:10px; }
-.price { color:#d63384; font-weight:bold; }
-button { padding:8px; width:100%; background:#d63384; color:white; border:none; border-radius:5px; cursor:pointer; }
-</style>
-
-<script>
-function addToCart(product, price){
-    localStorage.setItem("product", product);
-    localStorage.setItem("price", price);
-    alert("Added to Cart");
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
 }
-</script>
 
+.top-strip {
+    background: #ff3f6c;
+    color: white;
+    text-align: center;
+    padding: 8px;
+    font-size: 14px;
+}
+
+header {
+    background: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff3f6c;
+}
+
+.search-box input {
+    padding: 8px;
+    width: 300px;
+}
+
+.nav a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.banner {
+    background: linear-gradient(to right, #ff3f6c, #ff9a9e);
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.banner h1 {
+    margin: 0;
+    font-size: 40px;
+}
+
+.categories {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background: white;
+}
+
+.category {
+    text-align: center;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.product {
+    background: white;
+    width: 220px;
+    margin: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.product img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.price {
+    color: #ff3f6c;
+    font-weight: bold;
+}
+
+button {
+    background: #ff3f6c;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.features {
+    background: white;
+    padding: 40px;
+    text-align: center;
+}
+
+.footer {
+    background: #222;
+    color: white;
+    padding: 30px;
+    text-align: center;
+    margin-top: 30px;
+}
+</style>
 </head>
+
 <body>
 
-<div class="navbar">
-    <div class="logo">MyStore</div>
-    <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="login.html">Login</a>
-        <a href="cart.html">Cart</a>
-    </div>
+<div class="top-strip">
+🔥 Free Delivery on First Order | COD Available | Easy Returns
 </div>
 
-<div class="banner">Big Sale - 50% OFF</div>
+<header>
+<div class="logo">MyStore</div>
+
+<div class="search-box">
+<input type="text" placeholder="Search for products...">
+</div>
+
+<div class="nav">
+<a href="index.html">Home</a>
+<a href="login.html">Login</a>
+<a href="cart.html">Cart</a>
+</div>
+</header>
+
+<div class="banner">
+<h1>Big Fashion Sale</h1>
+<p>Up to 70% OFF on Latest Styles</p>
+<button>Shop Now</button>
+</div>
+
+<div class="categories">
+<div class="category">Women</div>
+<div class="category">Men</div>
+<div class="category">Kids</div>
+<div class="category">Accessories</div>
+</div>
+
+<h2 style="text-align:center;">Deals of the Day</h2>
 
 <div class="products">
 
-<div class="card">
+<div class="product">
 <img src="tshirt.jpg">
-<h3>Men t-Shirt</h3>
-<p class="price">₹499</p>
-<button onclick="addToCart('Men T-Shirt',499)">Add to Cart</button>
+<h3>Casual T-Shirt</h3>
+<p class="price">₹299</p>
+<button>Add to Cart</button>
 </div>
 
-<div class="card">
+<div class="product">
 <img src="kurti.jpg">
-<h3>Women Kurti</h3>
-<p class="price">₹799</p>
-<button onclick="addToCart('Women Kurti',799)">Add to Cart</button>
+<h3>Stylish Kurti</h3>
+<p class="price">₹499</p>
+<button>Add to Cart</button>
 </div>
 
-<div class="card">
+<div class="product">
 <img src="shoes.jpg">
-<h3>Shoes</h3>
-<p class="price">₹1499</p>
-<button onclick="addToCart('Shoes',1499)">Add to Cart</button>
+<h3>Sports Shoes</h3>
+<p class="price">₹999</p>
+<button>Add to Cart</button>
 </div>
 
-<div class="card">
+<div class="product">
 <img src="watch.jpg">
-<h3>Smart Watch</h3>
-<p class="price">₹1999</p>
-<button onclick="addToCart('Smart Watch',1999)">Add to Cart</button>
+<h3>Classic Watch</h3>
+<p class="price">₹799</p>
+<button>Add to Cart</button>
 </div>
 
-<div class="card">
+<div class="product">
 <img src="bag.jpg">
-<h3>Backpack</h3>
-<p class="price">₹899</p>
-<button onclick="addToCart('Backpack',899)">Add to Cart</button>
+<h3>Handbag</h3>
+<p class="price">₹599</p>
+<button>Add to Cart</button>
 </div>
 
+</div>
+
+<div class="features">
+<h2>Why Shop With Us?</h2>
+<p>✔ Trusted by 10,000+ customers</p>
+<p>✔ Secure Payments</p>
+<p>✔ Fast Delivery</p>
+<p>✔ Easy 7-Day Returns</p>
+</div>
+
+<div class="footer">
+<p>© 2026 MyStore. All Rights Reserved.</p>
+<p>About Us | Contact | Terms | Privacy Policy</p>
+<p>Download Our App</p>
 </div>
 
 </body>
-
 </html>
-
-
