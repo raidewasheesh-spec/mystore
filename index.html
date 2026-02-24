@@ -3,6 +3,28 @@
 <head>
 <title>MyStore - Online Shopping</title>
 <style>
+    <script>
+function addToCart(name, price) {
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    let existingProduct = cart.find(item => item.name === name);
+
+    if (existingProduct) {
+        existingProduct.quantity += 1;
+    } else {
+        cart.push({
+            name: name,
+            price: price,
+            quantity: 1
+        });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    alert(name + " added to cart!");
+}
+</script>
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -208,3 +230,4 @@ button {
 
 </body>
 </html>
+
