@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Secure Payment</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="payment-container">
+    <h2>Choose Payment Method</h2>
+
+    <div class="payment-options">
+        <button onclick="showCard()">Credit / Debit Card</button>
+        <button onclick="showUPI()">UPI</button>
+        <button onclick="showNetBanking()">Net Banking</button>
+    </div>
+
+    <!-- Card Section -->
+    <div id="cardSection" class="payment-form">
+        <h3>Card Details</h3>
+        <select>
+            <option>Credit Card</option>
+            <option>Debit Card</option>
+        </select>
+        <input type="text" placeholder="Card Number">
+        <input type="text" placeholder="Card Holder Name">
+        <input type="text" placeholder="Expiry Date (MM/YY)">
+        <input type="text" placeholder="CVV">
+        <button onclick="success()">Pay Now</button>
+    </div>
+
+    <!-- UPI Section -->
+    <div id="upiSection" class="payment-form">
+        <h3>Enter UPI ID</h3>
+        <input type="text" placeholder="example@upi">
+        <button onclick="success()">Pay Now</button>
+    </div>
+
+    <!-- Net Banking Section -->
+    <div id="netSection" class="payment-form">
+        <h3>Select Bank</h3>
+        <select>
+            <option>SBI</option>
+            <option>HDFC</option>
+            <option>ICICI</option>
+            <option>Axis Bank</option>
+        </select>
+        <button onclick="success()">Proceed</button>
+    </div>
+
+</div>
+
+<script>
+function showCard(){
+    document.getElementById("cardSection").style.display="block";
+    document.getElementById("upiSection").style.display="none";
+    document.getElementById("netSection").style.display="none";
+}
+
+function showUPI(){
+    document.getElementById("cardSection").style.display="none";
+    document.getElementById("upiSection").style.display="block";
+    document.getElementById("netSection").style.display="none";
+}
+
+function showNetBanking(){
+    document.getElementById("cardSection").style.display="none";
+    document.getElementById("upiSection").style.display="none";
+    document.getElementById("netSection").style.display="block";
+}
+
+function success(){
+    alert("Payment Successful ✅");
+    window.location.href = "success.html";
+}
+</script>
+
+</body>
+</html>
